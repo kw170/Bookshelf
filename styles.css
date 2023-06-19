@@ -1,5 +1,7 @@
-body{
+*{
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body{
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -7,7 +9,6 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    border:solid;
     flex:1 1 0;
 }
 
@@ -42,19 +43,44 @@ body{
 }
 .grid{
     display: grid;
-    border:solid;
     flex: 1 1 0;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
+    grid-auto-rows:250px;
     gap:30px;
     margin:0px 20px;
 
 }
 .card{
     background-color: #efe6d5;
-    border:solid;
     border-radius:10px;
     justify-content: center;
+
+    align-items:center;
+    display:grid;
+    grid-template-rows: repeat(3,48px) 94px;
+    font-size:20px;
+    border:solid;
+}
+.buttons{
+    display: grid;
+    justify-content: center;
+    gap:8px;
+}
+.bookDisplay{
+    font-weight:bold;
+    font-size:24px;
+
+
+}
+.bookDisplay, .authorDisplay, .pageDisplay{
+    text-align: center;
+}
+.readingStatusButton, .remove{
+    width:200px;
+    padding:10px 34px;
+    border-radius: 8px;
+    border:none;
+    font-size:16px;
 }
 .add{
     display: flex;
@@ -73,8 +99,10 @@ body{
     filter:brightness(90%);
 }
 
+.popup{
+    display:none;
+}
 .popup form{
-    /* display:none; */
     padding: 10px;
     border:solid;
     background-color:#9dbeb7;
