@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Form</title>
+    <link rel="icon" href="./imgs/bookshelf.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">bkshlf</h1>
+            <img class="logo" src="./imgs/bookshelf.png" alt="book logo">
+        </div>
+
+        <div class="content">
+            <div class="add">
+                <button class="addButton">+ Add Button</button>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h2>Harry Potter</h2>
+                </div>
+
+                <div class="card">
+                    <h2>The Hobbit</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="popup">
+        <form>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+
+            <label for="pagecount">Page Count</label>
+            <input type="number" id="pagecount" name="pagecount" required>
+
+            <div class="readingStatus">
+
+                <input class="checkbox" type="radio" id="completed" value="completed" name="readingStatus"/>
+                <label for="completed">Completed</label>
+
+
+                <input class="checkbox" type="radio" id="reading" value="reading" name="readingStatus"/>
+                <label for="reading">Reading</label>
+
+
+                <input class="checkbox" type="radio" id="plan-to-read" value="plan" name="readingStatus"/>
+                <label for="plan-to-read">Plan To Read</label>
+            </div>
+
+            <div class="submit">
+            <button class="submitButton">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
