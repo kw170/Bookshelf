@@ -79,7 +79,8 @@ body{
     width:200px;
     padding:10px 34px;
     border-radius: 8px;
-    border:none;
+    border:solid;
+    border-width: 2.5px;
     font-size:16px;
 }
 .add{
