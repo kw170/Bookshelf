@@ -3,13 +3,7 @@ function Book(title, author,pages,read){
     this.author = author
     this.pages = pages
     this.read = read
-
-    this.info = function(){
-        return (title + "  by " + author + ", " + pages
-        + " pages, " + read)
-    }
 }
-
 
 let myLibrary = [];
 
@@ -19,6 +13,12 @@ const submit = document.querySelector(".submit")
 const remove = document.querySelectorAll(".remove")
 const form = document.querySelector(".form")
 const grid = document.querySelector(".grid")
+const exit = document.querySelector(".exit")
+
+const inputTitle = document.getElementById("title")
+const inputAuthor = document.getElementById("author")
+const inputPages = document.getElementById("pages")
+const inputRadioCheckBox = document.querySelectorAll(".checkbox");
 
 let bookCount = 0;
 
@@ -28,13 +28,30 @@ addButton.addEventListener('click',()=>{
   popup.style.display = "flex"
 })
 
+//Clear form content after submision
+function clearForm(){
+  inputTitle.value = ""
+  inputAuthor.value = ""
+  inputPages.value = ""
+  inputRadioCheckBox.forEach(radioBox => {
+    radioBox.checked = false;
+  })
+}
+
+//Form submission
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   addBook(getBookValues());
-
+  clearForm();
   popup.style.display = "none";
   addBooksToScreen()
 });
+
+// Close popup event listener
+exit.addEventListener('click', (e) =>{
+  popup.style.display = "none"
+  clearForm();
+})
 
 
 
@@ -51,12 +68,20 @@ function getBookValues(){
 //add Book to array
 function addBook(newBook){
   myLibrary.push(newBook)
-  console.table(myLibrary)
 }
+//Removes card when remove button is clicked
+remove.forEach(removeButton =>{
+  removeButton.addEventListener('click', () =>{
+    removeButton.parentNode.parentNode.remove();
+  })
+})
+
+//Remove buttion functionality for new books
+
 
 // Add books to screen
 function addBooksToScreen() {
-  myLibrary.forEach(book =>{
+    let book = myLibrary.length - 1; 
     let card = document.createElement("div")
     card.classList.add("card")
 
@@ -79,10 +104,11 @@ function addBooksToScreen() {
     let remove = document.createElement("button")
     remove.classList.add("remove")
 
-    bookDisplay.textContent = book.title
-    authorDisplay.textContent = book.author
-    pageDisplay.textContent = book.pages + " pages"
-    readingStatusButton.textContent = book.read
+    //Text contnet is added to card from form
+    bookDisplay.textContent = myLibrary[book].title
+    authorDisplay.textContent = myLibrary[book].author
+    pageDisplay.textContent = myLibrary[book].pages + " pages"
+    readingStatusButton.textContent = myLibrary[book].read
     remove.textContent = "Remove"
 
     grid.appendChild(card)
@@ -92,9 +118,5 @@ function addBooksToScreen() {
     card.appendChild(buttons)
     buttons.appendChild(readingStatusButton)
     buttons.appendChild(remove)
-
-
-
-  })
 }
 

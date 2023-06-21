@@ -49,7 +49,10 @@
 
     <div class="popup">
         <form class="form">
-            <label for="title">Title</label>
+            <div class="titleRow">
+                <label for="title">Title</label>
+                <button class="exit">X</button>
+            </div>
             <input type="text" id="title" name="title" maxlength="60" required>
 
             <label for="author">Author</label>
@@ -73,7 +76,8 @@
             </div>
 
             <div class="submit">
-            <button class="submitButton">Submit</button>
+                <input class="submitButton" type="submit">
+            <!-- <button class="submitButton">Submit</button> -->
             </div>
         </form>
     </div>

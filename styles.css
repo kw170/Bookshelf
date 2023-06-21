@@ -129,6 +129,19 @@ input{
     height:30px;
     border-radius:8px;
 }
+.titleRow{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:0;
+}
+.exit{
+    align-items: center;
+    padding:3px 6px;
+    margin:0px;
+    border:none;
+    border-radius: 4px;
+}
 .readingStatus{
     display: flex;
     align-items: center;
@@ -144,4 +157,7 @@ input{
     height:30px;
     border-radius: 8px;
     border:none;
+}
+.submitButton:hover, .exit:hover{
+    filter:brightness(90%);
 }
