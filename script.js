@@ -118,5 +118,10 @@ function addBooksToScreen() {
     card.appendChild(buttons)
     buttons.appendChild(readingStatusButton)
     buttons.appendChild(remove)
+
+
+      remove.addEventListener('click', () =>{
+        remove.parentNode.parentNode.remove();
+      })
 }
 
