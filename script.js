@@ -11,13 +11,6 @@ function Book(title, author,pages,read){
 }
 
 
-
-
-
-function addBookToLibrary() {
-  // do stuff here
-}
-
 let myLibrary = [];
 
 const popup = document.querySelector('.popup')
@@ -25,6 +18,7 @@ const addButton = document.querySelector(".addButton")
 const submit = document.querySelector(".submit")
 const remove = document.querySelectorAll(".remove")
 const form = document.querySelector(".form")
+const grid = document.querySelector(".grid")
 
 let bookCount = 0;
 
@@ -39,6 +33,7 @@ form.addEventListener('submit', (event) => {
   addBook(getBookValues());
 
   popup.style.display = "none";
+  addBooksToScreen()
 });
 
 
@@ -46,11 +41,9 @@ form.addEventListener('submit', (event) => {
 // Create book from form
 function getBookValues(){
   const title = document.querySelector('#title').value;
-  console.log(title)
   const author = document.querySelector('#author').value;
   const pages = document.querySelector('#pages').value;
   const readingStatus = document.querySelector('input[name="readingStatus"]:checked').value;
-
   return new Book(title,author,pages,readingStatus)
 
 }
@@ -58,9 +51,50 @@ function getBookValues(){
 //add Book to array
 function addBook(newBook){
   myLibrary.push(newBook)
-  console.log("hello")
   console.table(myLibrary)
 }
 
-// addBook(getBookValues());
+// Add books to screen
+function addBooksToScreen() {
+  myLibrary.forEach(book =>{
+    let card = document.createElement("div")
+    card.classList.add("card")
+
+    let bookDisplay = document.createElement("p")
+    bookDisplay.classList.add("bookDisplay")
+
+    let authorDisplay = document.createElement("p")
+    authorDisplay.classList.add("authorDisplay")
+
+    let pageDisplay = document.createElement("p")
+    pageDisplay.classList.add("pageDisplay")
+
+
+    let buttons = document.createElement("div")
+    buttons.classList.add("buttons")
+
+    let readingStatusButton = document.createElement("button")
+    readingStatusButton.classList.add("readingStatusButton")
+
+    let remove = document.createElement("button")
+    remove.classList.add("remove")
+
+    bookDisplay.textContent = book.title
+    authorDisplay.textContent = book.author
+    pageDisplay.textContent = book.pages + " pages"
+    readingStatusButton.textContent = book.read
+    remove.textContent = "Remove"
+
+    grid.appendChild(card)
+    card.appendChild(bookDisplay)
+    card.appendChild(authorDisplay)
+    card.appendChild(pageDisplay)
+    card.appendChild(buttons)
+    buttons.appendChild(readingStatusButton)
+    buttons.appendChild(remove)
+
+
+
+  })
+}
 

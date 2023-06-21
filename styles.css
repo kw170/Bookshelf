@@ -83,6 +83,11 @@ body{
     border-width: 2.5px;
     font-size:16px;
 }
+
+.remove:hover{
+    color:#df3c2d;
+}
+
 .add{
     display: flex;
     justify-content: center;
