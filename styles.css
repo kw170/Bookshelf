@@ -51,7 +51,7 @@ body{
 
 }
 .card{
-    background-color: #efe6d5;
+    background-color: #f1eee7;
     border-radius:10px;
     justify-content: center;
 
@@ -85,7 +85,7 @@ body{
 }
 
 .remove:hover{
-    color:#df3c2d;
+    background-color:#db6358;  
 }
 
 .add{
